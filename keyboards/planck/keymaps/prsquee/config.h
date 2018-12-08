@@ -1,8 +1,10 @@
 #pragma once
 
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(ONE_UP_SOUND)
-    #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), SONG(COIN_SOUND) }
+    /* #define STARTUP_SONG SONG(ONE_UP_SOUND) */
+    #define STARTUP_SONG SONG( H__NOTE(_G5), H__NOTE(_FS5), H__NOTE(_E5), H__NOTE(_E5), W__NOTE(_FS5))
+
+    #define DEFAULT_LAYER_SONGS { SONG(SONIC_RING), SONG(COIN_SOUND) }
 #endif
 
 /*
