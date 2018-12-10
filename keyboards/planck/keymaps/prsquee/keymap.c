@@ -32,6 +32,7 @@ enum planck_keycodes {
   SQUEE,
   ALFRED,
   EMOJI,
+  CONSOLE,
   S1,
   S2,
 };
@@ -90,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-----------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT_planck_grid(
-      KC_TILD, KC_0,    KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7, KC_8,  KC_9,     _______,
+      CONSOLE, KC_0,    KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7, KC_8,  KC_9,     _______,
       KC_DEL,  KC_HOME, KC_UP,    KC_END,   S1,      _______, _______, KC_PAST,  KC_4, KC_5,  KC_6,     KC_PPLS,
       _______, KC_LEFT, KC_DOWN,  KC_RIGHT, S2,      _______, _______, KC_PSLS,  KC_1, KC_2,  KC_3,     KC_PMNS,
       _______, _______, _______,  _______,  _______, ALFRED,  _______, _______,  KC_0, KC_DOT, KC_EQL,  KC_PENT
@@ -217,6 +218,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case EMOJI:
       if (record->event.pressed) {
         SEND_STRING(SS_LCTRL(SS_LGUI(SS_TAP(X_SPACE))));
+      }
+      return false;
+      break;
+    case CONSOLE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_LALT("`"));
       }
       return false;
       break;
