@@ -30,7 +30,6 @@ enum planck_layers {
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   SQUEE,
-  ALFRED,
   EMOJI,
   CONSOLE,
   S1,
@@ -86,14 +85,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------+------+------+------+------+------|
    * |      | left | down | right| pgdn |      |      |   /  |   1  |   2  |   3  |  -   |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
-   * |      |      |      |      |      |   ALFRED    |      |   0  |   .  |   =  | enter|
+   * |      |      |      |      |      |             |      |   0  |   .  |   =  | enter|
    * `-----------------------------------------------------------------------------------'
    */
   [_LOWER] = LAYOUT_planck_grid(
       CONSOLE, KC_0,    KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7, KC_8,  KC_9,     _______,
       KC_DEL,  KC_HOME, KC_UP,    KC_END,   KC_PGUP, _______, _______, KC_PAST,  KC_4, KC_5,  KC_6,     KC_PPLS,
       _______, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_PGDN, _______, _______, KC_PSLS,  KC_1, KC_2,  KC_3,     KC_PMNS,
-      _______, _______, _______,  _______,  _______, ALFRED,  _______, _______,  KC_0, KC_DOT, KC_EQL,  KC_PENT
+      _______, _______, _______,  _______,  _______, _______, _______, _______,  KC_0, KC_DOT, KC_EQL,  KC_PENT
   ),
   /* SQUEE
    * ,-----------------------------------------------------------------------------------.
@@ -160,12 +159,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         print("mode just switched to SQUEE LAYER\n");
         set_single_persistent_default_layer(_SQUEE);
-      }
-      return false;
-      break;
-    case ALFRED:
-      if (record->event.pressed) {
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
       }
       return false;
       break;
