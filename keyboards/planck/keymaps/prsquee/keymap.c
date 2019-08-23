@@ -41,7 +41,7 @@ enum planck_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  /* Qwerty
+  /* {{{ QWERTY
    * ,-----------------------------------------------------------------------------------.
    * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |  BS  |
    * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -58,8 +58,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       LSFT_T(KC_COLN),  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,   KC_COMM,         KC_DOT,  KC_SLSH, RSFT_T(KC_QUOT),
       LCTL_T(KC_PIPE),  EMOJI,   KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,  RALT_T(KC_LEFT), KC_DOWN, KC_UP,   RGUI_T(KC_RGHT)
   ),
-
-  /* Raise
+  /* }}} */
+  /* {{{  Raise
    * ,-----------------------------------------------------------------------------------.
    * |   `  |   !  |   @  |   #  |   $  |   %  |   ^  |   &  |   *  |   -_ |   =+ | BS   |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -76,8 +76,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______, _______, KC__MUTE, KC__VOLDOWN, KC__VOLUP,  KC_MRWD, KC_MPLY, KC_MFFD, _______,
       _______, _______, _______, _______, _______, _______,  _______,     _______,    _______, _______, _______, _______
   ),
-
-  /* Lower
+  /* }}} */
+  /* {{{  Lower
    * ,-----------------------------------------------------------------------------------.
    * |   ~  |  0   |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |  BS  |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -94,31 +94,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_LEFT, KC_DOWN,  KC_RIGHT, KC_PGDN, _______, _______, KC_PSLS,  KC_1, KC_2,  KC_3,     KC_PMNS,
       _______, _______, _______,  _______,  _______, _______, _______, _______,  KC_0, KC_DOT, KC_EQL,  KC_PENT
   ),
-  /* SQUEE
+  /* }}} */
+  /* {{{ SQUEE
    * ,-----------------------------------------------------------------------------------.
-   * |  +   |   7  |   8  |   9  |  =   |      |      |      |      |   (  |   )  | Bksp |
+   * |      |   Q  |   W  |   F  |   P  |   B  |   J  |   L  |   U  |   Y  |   ;  |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
-   * |  -   |   4  |   5  |   6  |      |      |      |      |      |   [  |   ]  |  |   |
+   * |      |   A  |   R  |   S  |   T  |   G  |   K  |   N  |   E  |   I  |   O  |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
-   * |  *   |   1  |   2  |   3  |      |      |      |      |      |   {  |   }  |      |
+   * |      |   Z  |   X  |   C  |   D  |   V  |   M  |   H  |   ,  |   .  |   /  |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------|
-   * |  /   |   0  |  .   | enter|      |             |      | mute | prev | next | Play |
+   * |      |      |      |      |      |             |      |      |      |      |      |
    * `-----------------------------------------------------------------------------------'
    */
-  /* [_SQUEE] = LAYOUT_planck_grid( */
-  /*     KC_PPLS, KC_P7, KC_P8,  KC_P9,   KC_EQL,  _______, _______, _______, _______, KC_LPRN, KC_RPRN, KC_BSPC, */
-  /*     KC_PMNS, KC_P4, KC_P5,  KC_P6,   _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_QUOT, */
-  /*     KC_PAST, KC_P1, KC_P2,  KC_P3,   _______, _______, _______, _______, _______, KC_LCBR, KC_RCBR, KC_ENT , */
-  /*     KC_PSLS, KC_P0, KC_DOT, KC_PENT, LOWER,   KC_SPC,  KC_SPC,  RAISE,  KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT */
-  /* ), */
   [_SQUEE] = LAYOUT_planck_grid(
-      KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   KC_Y,    KC_U,   KC_I,            KC_O,    KC_P,    KC_BSPC,
-      MEH_T(KC_ESC),    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,    KC_J,   KC_K,            KC_L,    KC_SCLN, KC_ENT,
-      LSFT_T(KC_DOT),   KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   KC_N,    KC_M,   KC_COMM,         KC_DOT,  KC_SLSH, RSFT_T(KC_QUOT),
-      LCTL_T(KC_PIPE),  EMOJI,   KC_LALT, KC_LGUI, LOWER,   KC_SPC, KC_SPC,  RAISE,  RALT_T(KC_LEFT), KC_DOWN, KC_UP,   RGUI_T(KC_RGHT)
-      ),
-
-  /* Adjust (Lower + Raise)
+      KC_TAB,           KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,   KC_U,     KC_Y,   KC_SCLN,        KC_BSPC,
+      MEH_T(KC_ESC),    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_K,    KC_N,   KC_E,     KC_I,   KC_O,           KC_ENT,
+      LSFT_T(KC_COLN),  KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_M,    KC_H,   KC_COMM,  KC_DOT, KC_SLSH,        RSFT_T(KC_QUOT),
+      LCTL_T(KC_PIPE),  EMOJI,   KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,  RALT_T(KC_LEFT),  KC_DOWN, KC_UP, RGUI_T(KC_RGHT)
+  ),
+  /* }}} */
+  /* {{{ Adjust (Lower + Raise)
    * ,-----------------------------------------------------------------------------------.
    * |  F1  | F2   |  F3  | F4   | F5   | F6   | F7   | F8   | F9   | F10  | F11  | F12  |
    * |------+------+------+------+------+-------------+------+------+------+------+------|
@@ -135,6 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CK_ON,    CK_OFF,   CK_UP,  CK_DOWN,  CK_RST,   MU_ON,    MU_OFF,  _______, _______,  _______,  _______,  _______,
     _______,  _______,  _______, _______, _______,  _______,  _______, _______, _______,  _______,  _______,  _______
   )
+  /* }}} */
 };
 
 
