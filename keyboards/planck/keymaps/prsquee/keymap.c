@@ -33,7 +33,7 @@ enum planck_keycodes {
 };
 
 #define LOWER   LT(_LOWER, KC_ESC)    // tap for esc. hold for lower
-#define RAISE   LT(_RAISE, KC_ENT)    // tap for enter. hold for raise
+#define RAISE   MO(_RAISE)
 #define ALFRED  LGUI(KC_SPC)          // spacebar in the lower layer sends cmd+space
 #define CONSOLE LALT(KC_GRAVE)        // lower + ` sends alt+` to trigger dropdown console
 #define HYP_ESC MEH_T(KC_ESC)         // tap for esc. hold for ctrl+alt+shift
